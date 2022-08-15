@@ -34,6 +34,7 @@ def new_comment(request):
 
 #Getting "get() return more than one Comment -- it returned 3 intermediate django 20:30!" 
 @api_view(['PATCH'])
+@permission_classes([IsAuthenticated])
 def likes(request, id):
     #comments = Comment.objects.filter(video_id=id, likes=0)
     
