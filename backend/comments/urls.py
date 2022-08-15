@@ -5,5 +5,5 @@ from comments import views
 urlpatterns = [
     path('<str:id>/', views.get_all_comments),
     path('', views.new_comment),
-    path('<str:id>/', views.likes)
+    path('like_status/<str:id>/', views.likes)
 ]
