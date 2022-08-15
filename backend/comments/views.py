@@ -35,22 +35,26 @@ def new_comment(request):
 #Getting "get() return more than one Comment -- it returned 3 intermediate django 20:30!" 
 @api_view(['PATCH'])
 def likes(request, id):
-    comments = Comment.objects.filter(video_id=id)
+    #comments = Comment.objects.filter(video_id=id, likes=0)
+    
 
-    #type = request.query_params.get('type')
-   # print(type)
+    type = request.query_params.get('type')
+    print(type)
+
 
     if type == 'likes':
+        comments = Comment.objects.filter(video_id=id)
+    
         data = {'likes': comments.likes + int(1)}
         serializer = CommentSerializer(comments, request=data, partial=True)
         serializer.is_valid(raise_exception=True)
         serializer.save()
         return Response(serializer.data, status=status.HTTP_200_OK)
-    
+"""    
     elif type == 'dislikes':
         data = {'dislikes': comments.dislikes - int(1)}
         serializer = CommentSerializer(comments, request=data, partial=True)
         serializer.is_valid(raise_exception=True)
         serializer.save()
         return Response(serializer.data, status=status.HTTP_200_OK)
-
+"""
