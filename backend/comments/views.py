@@ -43,18 +43,20 @@ def likes(request, id):
 
 
     if type == 'likes':
-        comments = Comment.objects.filter(video_id=id)
+        comments = Comment.objects.get(pk=id)
     
         data = {'likes': comments.likes + int(1)}
-        serializer = CommentSerializer(comments, request=data, partial=True)
+        serializer = CommentSerializer(comments, data=data, partial=True)
         serializer.is_valid(raise_exception=True)
         serializer.save()
         return Response(serializer.data, status=status.HTTP_200_OK)
-"""    
+    
     elif type == 'dislikes':
-        data = {'dislikes': comments.dislikes - int(1)}
-        serializer = CommentSerializer(comments, request=data, partial=True)
+        comments = Comment.objects.get(pk=id)
+
+        data = {'dislikes': comments.dislikes + int(1)}
+        serializer = CommentSerializer(comments, data=data, partial=True)
         serializer.is_valid(raise_exception=True)
         serializer.save()
         return Response(serializer.data, status=status.HTTP_200_OK)
-"""
+
