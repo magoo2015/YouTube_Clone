@@ -5,10 +5,10 @@ import axios from 'axios';
 import {KEY} from '../../localKey';
 
  const YouTubePage = () => {
-    const [videos, setVideos] = useState(DATA.items);
+    const [videos, setVideos] = useState();
 
     useEffect(() => {
-        //fetchVideos()
+        fetchVideos()
     }, {});
 
     const fetchVideos = async () => {
