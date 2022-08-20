@@ -1,12 +1,13 @@
 // General Imports
 import { Routes, Route } from "react-router-dom";
 import "./App.css";
-import { KEY } from "./localKey";
+
 
 // Pages Imports
 import HomePage from "./pages/HomePage/HomePage";
 import LoginPage from "./pages/LoginPage/LoginPage";
 import RegisterPage from "./pages/RegisterPage/RegisterPage";
+
 
 // Component Imports
 import Navbar from "./components/NavBar/NavBar";
