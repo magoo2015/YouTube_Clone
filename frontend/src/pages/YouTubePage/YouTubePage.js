@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from 'react';
+import { DATA } from '../../localData';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import {KEY} from '../../localKey';
 
  const YouTubePage = () => {
-    const [videos, setVideos] = useState([]);
+    const [videos, setVideos] = useState(DATA.items);
 
     useEffect(() => {
-        fetchVideos()
+        //fetchVideos()
     }, {});
 
     const fetchVideos = async () => {
@@ -16,8 +17,26 @@ import {KEY} from '../../localKey';
             console.log(response.data)
             setVideos(response.data)
         } catch (error) {
-            console.log(error.message)
-            
+            console.log(error.message);   
         }
-    }
- }
+    };
+    return (
+        <div>
+            <h1>Api Data</h1>
+            {videos &&
+            videos.map((video) => {
+                return(
+                    <div>
+                        <p>{video.snippet.title}</p>
+                        <Link to={`/video/${video.id.videoId}`}>
+                            <img src={video.snippet.thumbnails.medium.url} />
+                        </Link>
+                    </div>
+                );
+
+            })}
+        </div>
+    );
+ };
+
+ export default YouTubePage;
