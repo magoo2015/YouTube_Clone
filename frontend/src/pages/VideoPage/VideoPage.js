@@ -6,7 +6,7 @@ import axios from 'axios';
 
 
 const VideoPage = () => {
-    const [videos, setVideos] = useState("");
+    const [videos, setVideos] = useState([]);
     const {id} = useParams();
   
     useEffect(() => {
@@ -37,16 +37,13 @@ const VideoPage = () => {
             <div className='relatedvids'>
                 {videos &&
                 videos.map((video) => {
-                    if (video.hasOwnPropery("snippet")) {
-                        return (
-                            <div className='video' key={video.id.videoId}>
-                                <p>{video.snippet.title}</p>
-                                <img src={video.snippet.thumbnails.medium.url} />
-                            </div>
-                        );
-                    }
+                    return (
+                     <div key={video.id.videoId}>
+                        <p>{video.snippet.title}</p>
+                        <img src={video.snippet.thumbnails.medium.url} />
+                     </div>   
+                    )
                 })}
-
             </div>
         </div>
     )
