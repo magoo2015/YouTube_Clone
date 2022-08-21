@@ -12,7 +12,7 @@ const SearchPage = () => {
         fetchVideos();
     }, [])
 
-    const fetchVideos = async () => {
+    const fetchVideos = async (search) => {
         try {
             let response = await axios.get(`https://www.googleapis.com/youtube/v3/search?q=${search}&key=${KEY}`);
             console.log(response.data.items)

@@ -4,48 +4,34 @@ import { KEY } from "../../localKey";
 import axios from 'axios';
 //import { Link } from 'react-router-dom';
 
-
-const VideoPage = () => {
-    const [videos, setVideos] = useState();
-    const { id } = useParams();
+const VideoPage = (props) => {
+    const [videos, setVideos] = useState([""]);
+    const {videoId} = useParams();
   
-    useEffect(() => {
-        fetchRelatedVideos();
-    }, []);
 
-    const fetchRelatedVideos = async () => {
+    const fetchRelatedVideos = async (videoId) => {
         try {
-            let response = await axios.get(`https://www.googleapis.com/youtube/v3/search?relatedToVideoId=${id}&type=video&key=${KEY}`);
+            let response = await axios.get(`https://www.googleapis.com/youtube/v3/search?relatedToVideoId=${videoId}&type=video&key=${KEY}`);
             setVideos(response.data.items);
         } catch (error) {
             console.log(error.message);
         }
     };
 
+    useEffect(() => {
+        fetchRelatedVideos();
+    }, [videoId]);
+
     return (
-        <div>
-            <div className='videoPlayers'>
-                <iframe title="videoPlayer"
-                        id="ytplayer"
-                        type="text/html"
-                        width="640"
-                        height="360" 
-                        src={`https://www.youtube.com/embed/${id}`}
-                        frameborder="0">
-                </iframe>
-            </div>
-            <div className='relatedvids'>
-                {videos &&
-                videos.map((video) => {
-                    return (
-                     <div key={video.id.videoId}>
-                        <p>{video.snippet.title}</p>
-                        <img src={video.snippet.thumbnails.medium.url} />
-                     </div>   
-                    )
-                })}
-            </div>
-        </div>
+            <iframe
+                title="Video"
+                id="ytplayer"
+                type="text/html"
+                width="640"
+                height="360"
+                src={`https://www.youtube.com/embed/${videoId}?autoplay=1&origin=http://example.com`}
+                framebBorder="0"
+            ></iframe>
     )
 }
 
