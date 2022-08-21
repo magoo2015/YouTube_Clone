@@ -6,8 +6,8 @@ import axios from 'axios';
 
 
 const VideoPage = () => {
-    const [videos, setVideos] = useState([]);
-    const {id} = useParams();
+    const [videos, setVideos] = useState();
+    const { id } = useParams();
   
     useEffect(() => {
         fetchRelatedVideos();
@@ -24,7 +24,7 @@ const VideoPage = () => {
 
     return (
         <div>
-            <div className='videoPlayer'>
+            <div className='videoPlayers'>
                 <iframe title="videoPlayer"
                         id="ytplayer"
                         type="text/html"
