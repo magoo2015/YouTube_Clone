@@ -7,9 +7,11 @@ import "./App.css";
 import HomePage from "./pages/HomePage/HomePage";
 import LoginPage from "./pages/LoginPage/LoginPage";
 import RegisterPage from "./pages/RegisterPage/RegisterPage";
-import YouTubePage from "./pages/YouTubePage/YouTubePage";
-import SearchPage from "./pages/SearchPage/SearchPage";
 import VideoPage from "./pages/VideoPage/VideoPage";
+import YouTubePage from "./pages/YouTubePage/YouTubePage";
+
+
+
 
 
 
@@ -23,6 +25,8 @@ import SearchBar from "./components/SearchBar/SearchBar";
 import PrivateRoute from "./utils/PrivateRoute";
 
 function App() {
+
+
   return (
     <div>
       <Navbar />
@@ -39,8 +43,7 @@ function App() {
         <Route path="/register" element={<RegisterPage />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/home" element={<YouTubePage />} />
-        <Route path="/:videoid" element={<VideoPage />} />
-        <Route path="/searchResults" element={<SearchPage />} />
+        <Route path="/video/:videoid" element={<VideoPage />} />
       </Routes>
       <Footer />
     </div>

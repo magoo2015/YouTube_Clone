@@ -5,34 +5,41 @@ import axios from 'axios';
 //import { Link } from 'react-router-dom';
 
 const VideoPage = (props) => {
-    const [videos, setVideos] = useState([""]);
     const {videoId} = useParams();
-  
-
-    const fetchRelatedVideos = async (videoId) => {
-        try {
-            let response = await axios.get(`https://www.googleapis.com/youtube/v3/search?relatedToVideoId=${videoId}&type=video&key=${KEY}`);
-            setVideos(response.data.items);
-        } catch (error) {
-            console.log(error.message);
-        }
-    };
+    const [relatedVideos, setRelatedVideos] = useState([]);
 
     useEffect(() => {
-        fetchRelatedVideos();
-    }, [videoId]);
+        getRelatedVideos(videoId);
+    },[]);
 
-    return (
-            <iframe
-                title="Video"
-                id="ytplayer"
-                type="text/html"
-                width="640"
-                height="360"
-                src={`https://www.youtube.com/embed/${videoId}?autoplay=1&origin=http://example.com`}
-                framebBorder="0"
-            ></iframe>
-    )
+    async function getRelatedVideos(id) {
+        try {
+            let response = await axios.get(
+                `https://www.googleapis.com/youtube/v3/search?relatedToVideoId=${id}&type=video&key=${KEY}&part=snippet&maxResults=8`);
+                setRelatedVideos(response.data.items);
+        } catch (error) {
+            console.log(error.message);
+            
+        }
+    }
+
+return (
+    <div className='video-page'>
+        <div>
+        <iframe
+            id="ytplayer"
+            type="text/html"
+            title="myVideo"
+            width="640"
+            height="360"
+            src={`https://www.youtube.com/embed/${videoId}?autoplay=1&origin=http://example.com`}
+          ></iframe>
+        </div>
+
+    </div>
+)
+
+   
 }
 
 export default VideoPage;
