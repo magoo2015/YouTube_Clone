@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import {useNavigate} from 'react-router-dom';
-import SearchPage from "../../pages/SearchPage/SearchPage";
+import SearchPage from '../../pages/SearchPage/SearchPage';
 
 const SearchBar = (props) => {
     const [search, addSearch] = useState();
