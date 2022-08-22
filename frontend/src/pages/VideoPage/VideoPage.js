@@ -5,12 +5,10 @@ import axios from 'axios';
 //import { Link } from 'react-router-dom';
 
 const VideoPage = (props) => {
-    const {videoId} = useParams();
+    const {videoid} = useParams();
+    console.log(videoid)
     const [relatedVideos, setRelatedVideos] = useState([]);
-
-    useEffect(() => {
-        getRelatedVideos(videoId);
-    },[]);
+   
 
     async function getRelatedVideos(id) {
         try {
@@ -23,6 +21,10 @@ const VideoPage = (props) => {
         }
     }
 
+    useEffect(() => {
+        getRelatedVideos(videoid);
+     },[]);
+
 return (
     <div className='video-page'>
         <div>
@@ -32,7 +34,7 @@ return (
             title="myVideo"
             width="640"
             height="360"
-            src={`https://www.youtube.com/embed/${videoId}?autoplay=1&origin=http://example.com`}
+            src={`https://www.youtube.com/embed/${videoid}?autoplay=1`}
           ></iframe>
         </div>
 
