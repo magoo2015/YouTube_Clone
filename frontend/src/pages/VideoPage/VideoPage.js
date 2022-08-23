@@ -37,8 +37,19 @@ return (
             src={`https://www.youtube.com/embed/${videoid}?autoplay=1`}
           ></iframe>
         </div>
-
+        <div className='relatedvideos'>
+            {relatedVideos &&
+            relatedVideos.map((video) => {
+                return (
+                    <div>
+                        <p>{video.snippet.title}</p>
+                        <img src={video.snippet.thumbnails.medium.url} />
+                    </div>
+                )
+            })}
+        </div>
     </div>
+
 )
 
    
