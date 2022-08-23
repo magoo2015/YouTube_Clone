@@ -3,6 +3,7 @@ import { DATA } from '../../localData';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import {KEY} from '../../localKey';
+import "./YouTubePage.css";
 
  const YouTubePage = () => {
     const [videos, setVideos] = useState([]);
@@ -21,7 +22,7 @@ import {KEY} from '../../localKey';
         }
     };
     return (
-        <div>
+        <div className='videoContainer'>
             {videos &&
             videos.map((video) => {
                 return(

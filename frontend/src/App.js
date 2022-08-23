@@ -9,6 +9,7 @@ import LoginPage from "./pages/LoginPage/LoginPage";
 import RegisterPage from "./pages/RegisterPage/RegisterPage";
 import VideoPage from "./pages/VideoPage/VideoPage";
 import YouTubePage from "./pages/YouTubePage/YouTubePage";
+import SearchPage from "./pages/SearchPage/SearchPage";
 
 
 
@@ -44,6 +45,7 @@ function App() {
         <Route path="/login" element={<LoginPage />} />
         <Route path="/home" element={<YouTubePage />} />
         <Route path="/video/:videoid" element={<VideoPage />} />
+        <Route path="/search/:search" element={<SearchPage />} />
       </Routes>
       <Footer />
     </div>

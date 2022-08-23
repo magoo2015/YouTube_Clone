@@ -3,7 +3,7 @@ import {useNavigate} from 'react-router-dom';
 import SearchPage from '../../pages/SearchPage/SearchPage';
 
 const SearchBar = (props) => {
-    const [search, addSearch] = useState();
+    const [search, updateSearch] = useState();
 
     const navigate = useNavigate();
 
@@ -15,7 +15,7 @@ const SearchBar = (props) => {
 
     return (
         <form onSubmit={handleSubmit}>
-            <input type="search" value={search} onChange={(event) => addSearch(event.target.value)} />
+            <input type="search" value={search} onChange={(event) => updateSearch(event.target.value)} />
             <button>Search</button>
         </form>
     );

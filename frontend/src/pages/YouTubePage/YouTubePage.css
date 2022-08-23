@@ -1,0 +1,13 @@
+.videoContainer {
+    display: grid;
+    padding-top: 50px;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto;
+    justify-content: space-around;
+  }
+  
+  .vid {
+    align-items: center;
+    width: 450px;
+  }
