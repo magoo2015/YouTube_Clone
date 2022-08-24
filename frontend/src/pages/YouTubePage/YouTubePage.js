@@ -26,7 +26,7 @@ import "./YouTubePage.css";
             {videos &&
             videos.map((video) => {
                 return(
-                    <div>
+                    <div className='video' key={video.snippet.title}>
                         <p>{video.snippet.title}</p>
                         <Link to={`/video/${video.id.videoId}`}>
                             <img src={video.snippet.thumbnails.medium.url} />

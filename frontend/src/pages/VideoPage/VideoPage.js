@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import  {useParams} from "react-router-dom";
 import { KEY } from "../../localKey";
 import axios from 'axios';
+import './VideoPage.css';
 //import { Link } from 'react-router-dom';
 
 const VideoPage = (props) => {
