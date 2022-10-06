@@ -10,7 +10,7 @@ const SearchPage = () => {
    
     const fetchVideos = async (search) => {
         try {
-            let response = await axios.get(`https://www.googleapis.com/youtube/v3/search?q=${search}&key=${KEY}`);
+            let response = await axios.get(`https://www.googleapis.com/youtube/v3/search?q=${search}&key=${KEY}&part=snippet&maxResults=8`);
             console.log(response.data.items)
             setVideos(response.data.items)
         } catch (error) {
@@ -18,7 +18,7 @@ const SearchPage = () => {
         }
     };
     useEffect(() => {
-        fetchVideos();
+        fetchVideos(search);
     }, []);
 
     return (
