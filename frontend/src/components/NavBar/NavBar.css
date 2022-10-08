@@ -9,7 +9,7 @@ li {
 }
 
 .navBar {
-  background: steelblue;
+  background: black;
   box-shadow: 4px 2px 5px gray;
   color: white;
   margin-bottom: 2rem;
@@ -32,4 +32,32 @@ li {
 .brand {
   cursor: pointer;
   font-size: 2rem;
+}
+
+.search {
+  position: absolute;
+  left: 50rem;
+}
+
+.search button {
+  color: rgb(243, 255, 252);
+  font-size: 11px;
+  line-height: 11px;
+  padding: 6px;
+  border-radius: 31px;
+  font-family: Georgia, serif;
+  font-weight: normal;
+  text-decoration: none;
+  font-style: normal;
+  font-variant: normal;
+  text-transform: none;
+  background-image: linear-gradient(
+    to right,
+    rgb(28, 110, 164) 0%,
+    rgb(35, 136, 203) 50%,
+    rgb(20, 78, 117) 100%
+  );
+  box-shadow: rgb(0, 0, 0) 5px 5px 15px 5px;
+  border: 2px solid rgb(28, 110, 164);
+  display: inline-block;
 }

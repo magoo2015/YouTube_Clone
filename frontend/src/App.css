@@ -11,6 +11,7 @@
 html {
   box-sizing: border-box;
   font-family: "Poppins", sans-serif;
+  background-image: linear-gradient(to bottom right, black, red);
 }
 
 p {
@@ -55,4 +56,18 @@ button:hover {
   margin: 5px;
   padding: 3px 7px;
   font-size: 17px;
+}
+
+.videoscontainer {
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: row;
+  align-content: space-around;
+  justify-content: space-around;
+  align-items: center;
+  padding: 1rem;
+}
+
+.vid {
+  padding: 1rem;
 }
