@@ -31,13 +31,12 @@ function App() {
   return (
     <div>
       <Navbar />
-      <SearchBar />
       <Routes>
         <Route
           path="/"
           element={
             <PrivateRoute>
-              <HomePage />
+              <YouTubePage />
             </PrivateRoute>
           }
         />
