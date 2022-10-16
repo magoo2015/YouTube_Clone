@@ -59,13 +59,13 @@ button:hover {
 }
 
 .videoscontainer {
-  display: flex;
-  flex-wrap: nowrap;
-  flex-direction: row;
-  align-content: space-around;
+  display: grid;
+  /* flex-direction: row; */
+  /* align-content: space-around; */
   justify-content: space-around;
+  padding: 4rem;
   align-items: center;
-  padding: 1rem;
+  justify-items: start;
 }
 
 .vid {
